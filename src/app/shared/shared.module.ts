@@ -9,6 +9,9 @@ import {SHARED_ZORRO_MODULES} from "./shared-zorro.module";
   imports: [
     ...SHARED_ZORRO_MODULES,
     CommonModule
+  ],
+  exports: [
+    ...SHARED_ZORRO_MODULES,
   ]
 })
 export class SharedModule { }
