@@ -1,23 +1,23 @@
 <nz-layout class="layout">
   <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
-    <div class="logo"></div>
+    <div class="logo">
+      <nz-avatar [nzSize]="32" nzSrc="/assets/imgs/logo.png"></nz-avatar>
+      <span *ngIf="!isCollapsed" class="logo-text">PerfreeAdmin</span>
+    </div>
     <ul nz-menu nzTheme="dark" nzMode="inline">
-      <li nz-submenu nzTitle="User" nzIcon="user">
-        <ul>
-          <li nz-menu-item>Tom</li>
-          <li nz-menu-item>Bill</li>
-          <li nz-menu-item>Alex</li>
-        </ul>
+      <li nz-menu-item nzMatchRouter [routerLink]="['dashboard']" [nzMatchRouterExact]="true">
+        <i nz-icon nzType="dashboard"></i>
+        <span>控制台</span>
       </li>
-      <li nz-submenu nzTitle="Team" nzIcon="team">
-        <ul>
-          <li nz-menu-item>Team 1</li>
-          <li nz-menu-item>Team 2</li>
-        </ul>
+      <li nz-menu-item nzMatchRouter [routerLink]="['article/create']" [nzMatchRouterExact]="true">
+        <i nz-icon nzType="edit"></i>
+        <span>写文章</span>
       </li>
-      <li nz-menu-item>
-        <i nz-icon nzType="file"></i>
-        <span>File</span>
+
+      <li nz-submenu nzTitle="内容管理" nzIcon="read">
+        <ul>
+          <li nz-menu-item nzMatchRouter [routerLink]="['article']" [nzMatchRouterExact]="true">文章管理</li>
+        </ul>
       </li>
     </ul>
   </nz-sider>

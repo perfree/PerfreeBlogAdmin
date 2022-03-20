@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { InstallRoutingModule } from './install-routing.module';
 import { InstallComponent } from './install/install.component';
+import {SharedModule} from "../../shared/shared.module";
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { InstallComponent } from './install/install.component';
   ],
   imports: [
     CommonModule,
-    InstallRoutingModule
+    InstallRoutingModule,
+    SharedModule
   ]
 })
 export class InstallModule { }
