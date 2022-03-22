@@ -1,18 +1,96 @@
-<nz-steps [nzCurrent]="current">
-  <nz-step nzTitle="Finished"></nz-step>
-  <nz-step nzTitle="In Progress"></nz-step>
-  <nz-step nzTitle="Waiting"></nz-step>
-</nz-steps>
+<div class="container" nz-row>
+  <div class="install-box" nz-col nzXs="24" nzSm="21" nzMd="18" nzLg="15" nzXl="10" nzXXl="8">
+    <div class="title-box">
+      <h2 class="title"><img src="/assets/imgs/logo.png" class="logo">Perfree</h2>
+    </div>
 
-<div class="steps-content">{{ index }}</div>
-<div class="steps-action">
-  <button nz-button nzType="default" (click)="pre()" *ngIf="current > 0">
-    <span>Previous</span>
-  </button>
-  <button nz-button nzType="default" (click)="next()" *ngIf="current < 2">
-    <span>Next</span>
-  </button>
-  <button nz-button nzType="primary" (click)="done()" *ngIf="current === 2">
-    <span>Done</span>
-  </button>
+    <nz-alert nzType="success" nzMessage="欢迎使用PerfreeBlog,您正在安装v3.0.0版本的PerfreeBlog" nzShowIcon></nz-alert>
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()" class="install-form">
+      <nz-divider nzText="数据库信息" nzPlain nzDashed></nz-divider>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="请选择数据库类型">
+           <div class="select-box">
+             <i nz-icon nzType="database" nzTheme="outline" class="select-icon"></i>
+             <nz-select formControlName="dataBaseType" nzPlaceHolder="数据库类型" nzBorderless (ngModelChange)="changeType()">
+               <nz-option nzValue="mysql" nzLabel="mysql"></nz-option>
+               <nz-option nzValue="sqlite" nzLabel="sqlite"></nz-option>
+             </nz-select>
+           </div>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item *ngIf="dataBaseType == 'mysql'">
+        <nz-form-control nzErrorTip="请输入数据库地址">
+          <nz-input-group nzPrefixIcon="link">
+            <input type="text" nz-input formControlName="dataBaseAddress" placeholder="数据库地址" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item *ngIf="dataBaseType == 'mysql'">
+        <nz-form-control nzErrorTip="请输入数据库端口">
+          <nz-input-group nzPrefixIcon="api">
+            <input type="text" nz-input formControlName="dataBasePort" placeholder="数据库端口" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item *ngIf="dataBaseType == 'mysql'">
+        <nz-form-control>
+          <nz-input-group nzPrefixIcon="inbox">
+            <input type="text" nz-input formControlName="dataBaseName" placeholder="数据库名称,默认Perfree" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item *ngIf="dataBaseType == 'mysql'">
+        <nz-form-control nzErrorTip="请输入数据库用户名">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="dataBaseUserName" placeholder="数据库用户名" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item *ngIf="dataBaseType == 'mysql'">
+        <nz-form-control nzErrorTip="请输入数据库密码">
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="text" nz-input formControlName="dataBasePassword" placeholder="数据库密码" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-divider nzText="管理员信息" nzPlain nzDashed></nz-divider>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="请输入管理员用户名">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input formControlName="userName" placeholder="管理员用户名" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control nzErrorTip="请输入管理员账号">
+          <nz-input-group nzPrefixIcon="solution">
+            <input type="text" nz-input formControlName="account" placeholder="管理员账号" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control nzErrorTip="请输入管理员密码">
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="text" nz-input formControlName="password" placeholder="管理员密码" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group nzPrefixIcon="mail">
+            <input type="text" nz-input formControlName="email" placeholder="邮箱地址" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button nz-button nzBlock [nzType]="'primary'"><i nz-icon nzType="check" nzTheme="outline"></i>安装</button>
+    </form>
+  </div>
 </div>

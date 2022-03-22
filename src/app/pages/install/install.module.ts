@@ -10,10 +10,10 @@ import {SharedModule} from "../../shared/shared.module";
   declarations: [
     InstallComponent
   ],
-  imports: [
-    CommonModule,
-    InstallRoutingModule,
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        InstallRoutingModule,
+        SharedModule
+    ]
 })
 export class InstallModule { }
