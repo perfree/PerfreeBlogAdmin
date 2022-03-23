@@ -109,7 +109,6 @@ export class DefaultInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // 统一加上服务端前缀
-    console.log(location.protocol)
     let url = req.url;
     if (!url.startsWith('https://') && !url.startsWith('http://')) {
       url = location.protocol + "//" + environment.server + url;

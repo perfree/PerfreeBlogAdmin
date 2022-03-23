@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {InstallService} from "../../../service/install/install.service";
 import {NzMessageService} from "ng-zorro-antd/message";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-install',
@@ -15,6 +16,7 @@ export class InstallComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private installService: InstallService,
+    private router: Router,
     private message: NzMessageService
   ) { }
 
@@ -29,16 +31,16 @@ export class InstallComponent implements OnInit {
       userName: [null, [Validators.required]],
       account: [null, [Validators.required]],
       password: [null, [Validators.required]],
-      email: [null]
+      email: [null, [Validators.required]]
     });
   }
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
       this.installService.install(this.validateForm.value).subscribe((res: any) => {
-        console.log(res);
-        if (res === 200) {
+        if (res.code === 200) {
+          this.message.create('success', '安装成功');
+          this.router.navigate(['/login']);
         } else {
           this.message.create('error', res.msg);
         }

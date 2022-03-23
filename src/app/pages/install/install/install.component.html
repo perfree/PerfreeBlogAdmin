@@ -21,7 +21,7 @@
       <nz-form-item *ngIf="dataBaseType == 'mysql'">
         <nz-form-control nzErrorTip="请输入数据库地址">
           <nz-input-group nzPrefixIcon="link">
-            <input type="text" nz-input formControlName="dataBaseAddress" placeholder="数据库地址" />
+            <input type="text" nz-input formControlName="dataBaseAddress" placeholder="数据库地址" autocomplete="on"/>
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
@@ -29,7 +29,7 @@
       <nz-form-item *ngIf="dataBaseType == 'mysql'">
         <nz-form-control nzErrorTip="请输入数据库端口">
           <nz-input-group nzPrefixIcon="api">
-            <input type="text" nz-input formControlName="dataBasePort" placeholder="数据库端口" />
+            <input type="text" nz-input formControlName="dataBasePort" placeholder="数据库端口"  autocomplete="on"/>
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
@@ -37,7 +37,7 @@
       <nz-form-item *ngIf="dataBaseType == 'mysql'">
         <nz-form-control>
           <nz-input-group nzPrefixIcon="inbox">
-            <input type="text" nz-input formControlName="dataBaseName" placeholder="数据库名称,默认Perfree" />
+            <input type="text" nz-input formControlName="dataBaseName" placeholder="数据库名称,默认Perfree" autocomplete="on" />
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
@@ -45,7 +45,7 @@
       <nz-form-item *ngIf="dataBaseType == 'mysql'">
         <nz-form-control nzErrorTip="请输入数据库用户名">
           <nz-input-group nzPrefixIcon="user">
-            <input type="text" nz-input formControlName="dataBaseUserName" placeholder="数据库用户名" />
+            <input type="text" nz-input formControlName="dataBaseUserName" placeholder="数据库用户名" autocomplete="on" />
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
@@ -53,7 +53,7 @@
       <nz-form-item *ngIf="dataBaseType == 'mysql'">
         <nz-form-control nzErrorTip="请输入数据库密码">
           <nz-input-group nzPrefixIcon="lock">
-            <input type="text" nz-input formControlName="dataBasePassword" placeholder="数据库密码" />
+            <input type="text" nz-input formControlName="dataBasePassword" placeholder="数据库密码" autocomplete="on" />
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
@@ -62,7 +62,7 @@
       <nz-form-item>
         <nz-form-control nzErrorTip="请输入管理员用户名">
           <nz-input-group nzPrefixIcon="user">
-            <input type="text" nz-input formControlName="userName" placeholder="管理员用户名" />
+            <input type="text" nz-input formControlName="userName" placeholder="管理员用户名" autocomplete="on" />
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
@@ -70,7 +70,7 @@
       <nz-form-item>
         <nz-form-control nzErrorTip="请输入管理员账号">
           <nz-input-group nzPrefixIcon="solution">
-            <input type="text" nz-input formControlName="account" placeholder="管理员账号" />
+            <input type="text" nz-input formControlName="account" placeholder="管理员账号" autocomplete="on" />
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
@@ -78,15 +78,15 @@
       <nz-form-item>
         <nz-form-control nzErrorTip="请输入管理员密码">
           <nz-input-group nzPrefixIcon="lock">
-            <input type="text" nz-input formControlName="password" placeholder="管理员密码" />
+            <input type="text" nz-input formControlName="password" placeholder="管理员密码" autocomplete="on" />
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-control>
+        <nz-form-control nzErrorTip="请输入邮箱">
           <nz-input-group nzPrefixIcon="mail">
-            <input type="text" nz-input formControlName="email" placeholder="邮箱地址" />
+            <input type="text" nz-input formControlName="email" placeholder="邮箱地址" autocomplete="on" />
           </nz-input-group>
         </nz-form-control>
       </nz-form-item>
