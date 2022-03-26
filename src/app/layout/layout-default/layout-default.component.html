@@ -5,20 +5,18 @@
       <span *ngIf="!isCollapsed" class="logo-text">PerfreeAdmin</span>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline">
-      <li nz-menu-item nzMatchRouter [routerLink]="['dashboard']" [nzMatchRouterExact]="true">
-        <i nz-icon nzType="dashboard"></i>
-        <span>控制台</span>
-      </li>
-      <li nz-menu-item nzMatchRouter [routerLink]="['article/create']" [nzMatchRouterExact]="true">
-        <i nz-icon nzType="edit"></i>
-        <span>写文章</span>
-      </li>
+      <ng-container *ngFor="let menu of menuList">
+        <li nz-menu-item nzMatchRouter [routerLink]="[menu.url]" [nzMatchRouterExact]="true" *ngIf="menu.childMenu.length <= 0">
+          <i nz-icon [nzType]="menu.icon"></i>
+          <span>{{menu.name}}</span>
+        </li>
 
-      <li nz-submenu nzTitle="内容管理" nzIcon="read">
-        <ul>
-          <li nz-menu-item nzMatchRouter [routerLink]="['article']" [nzMatchRouterExact]="true">文章管理</li>
-        </ul>
-      </li>
+        <li nz-submenu [nzTitle]="menu.name" [nzIcon]="menu.icon" *ngIf="menu.childMenu.length > 0">
+          <ul>
+            <li nz-menu-item nzMatchRouter [routerLink]="[childMenu.url]" [nzMatchRouterExact]="true" *ngFor="let childMenu of menu.childMenu">{{childMenu.name}}</li>
+          </ul>
+        </li>
+      </ng-container>
     </ul>
   </nz-sider>
 

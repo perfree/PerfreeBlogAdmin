@@ -25,6 +25,7 @@ import {NzDividerModule} from "ng-zorro-antd/divider";
 import {NzMessageModule} from "ng-zorro-antd/message";
 import {NzTypographyModule} from "ng-zorro-antd/typography";
 import {NzSpaceModule} from "ng-zorro-antd/space";
+import {NzStatisticModule} from "ng-zorro-antd/statistic";
 
 export const SHARED_ZORRO_MODULES = [
   NzFormModule,
@@ -53,5 +54,6 @@ export const SHARED_ZORRO_MODULES = [
   NzDividerModule,
   NzMessageModule,
   NzTypographyModule,
-  NzSpaceModule
+  NzSpaceModule,
+  NzStatisticModule
 ];

@@ -3,11 +3,15 @@ import {RouterModule, Routes} from '@angular/router';
 import {InstallGuard} from "./core/canActivate/installGuard";
 import {InstalledGuard} from "./core/canActivate/installedGuard";
 import {LoginGuard} from "./core/canActivate/loginGuard";
+import {LayoutDefaultResolver} from "./layout/LayoutDefaultResolver";
 
 const routes: Routes = [
   {
     path: '',
     canActivate: [InstallGuard, LoginGuard],
+    resolve: {
+      data: LayoutDefaultResolver
+    },
     loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule)
   },
   {

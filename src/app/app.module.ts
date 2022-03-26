@@ -11,6 +11,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from "./shared/shared.module";
 import {DefaultInterceptor} from "./core/net/default.interceptor";
+import {LayoutDefaultResolver} from "./layout/LayoutDefaultResolver";
 
 registerLocaleData(zh);
 
@@ -26,7 +27,11 @@ registerLocaleData(zh);
     SharedModule,
     BrowserAnimationsModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }, {provide: HTTP_INTERCEPTORS, useClass: DefaultInterceptor, multi: true},],
+  providers: [
+    { provide: NZ_I18N, useValue: zh_CN },
+    {provide: HTTP_INTERCEPTORS, useClass: DefaultInterceptor, multi: true},
+    LayoutDefaultResolver
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
