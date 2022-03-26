@@ -1,0 +1,27 @@
+<nz-header>
+  <div class="header">
+   <div class="header-l">
+     <i
+       class="trigger"
+       nz-icon
+       [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+       (click)="collapsedChange()"
+     ></i>
+   </div>
+
+    <div class="header-r">
+      <a nz-dropdown [nzDropdownMenu]="menu" class="user-box">
+        <nz-avatar nzIcon="user" nzSrc="{{user.avatarUrl}}"></nz-avatar>
+        {{user.userName}}
+        <i nz-icon nzType="down"></i>
+      </a>
+    </div>
+  </div>
+</nz-header>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu nzSelectable>
+    <li nz-menu-item><i nz-icon nzType="user" nzTheme="outline" class="user-icon"></i> 个人中心</li>
+    <li nz-menu-item (click)="logOut()"><i nz-icon nzType="export" nzTheme="outline" class="user-icon"></i> 退出登录</li>
+  </ul>
+</nz-dropdown-menu>

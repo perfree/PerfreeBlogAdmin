@@ -23,6 +23,8 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import {NzStepsModule} from "ng-zorro-antd/steps";
 import {NzDividerModule} from "ng-zorro-antd/divider";
 import {NzMessageModule} from "ng-zorro-antd/message";
+import {NzTypographyModule} from "ng-zorro-antd/typography";
+import {NzSpaceModule} from "ng-zorro-antd/space";
 
 export const SHARED_ZORRO_MODULES = [
   NzFormModule,
@@ -49,5 +51,7 @@ export const SHARED_ZORRO_MODULES = [
   NzLayoutModule,
   NzStepsModule,
   NzDividerModule,
-  NzMessageModule
+  NzMessageModule,
+  NzTypographyModule,
+  NzSpaceModule
 ];

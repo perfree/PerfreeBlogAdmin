@@ -1,1 +1,46 @@
-<p>login works!</p>
+<div class="container">
+  <div class="login-box">
+    <div class="title-box">
+      <h2 class="title"><img src="/assets/imgs/logo.png" class="logo">Perfree</h2>
+    </div>
+
+    <nz-spin [nzSpinning]="isLoading">
+      <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+
+      <nz-form-item>
+        <nz-form-control nzErrorTip="请输入账号或邮箱">
+          <nz-input-group nzPrefixIcon="solution">
+            <input type="text" nz-input formControlName="account" placeholder="账号/邮箱" autocomplete="on" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control nzErrorTip="请输入密码">
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="password" placeholder="密码" autocomplete="on" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button nzType="primary" nzBlock type="submit">
+            <span>登录</span>
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+
+
+      <div class="footer">
+        <div>
+          还没有账号? 点击<a> 注册</a>
+        </div>
+        <div>
+          <a>忘记密码</a>
+        </div>
+      </div>
+    </form>
+    </nz-spin>
+  </div>
+</div>
