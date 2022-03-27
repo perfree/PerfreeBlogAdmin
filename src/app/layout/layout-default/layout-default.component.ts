@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {NzMenuItemDirective} from "ng-zorro-antd/menu";
 
 @Component({
   selector: 'app-layout-default',
@@ -10,6 +11,8 @@ export class LayoutDefaultComponent implements OnInit {
   isCollapsed = false;
 
   menuList: any[] = [];
+
+  breadcrumbList: any[] = [];
   constructor( private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -18,4 +21,14 @@ export class LayoutDefaultComponent implements OnInit {
     });
   }
 
+  changeMenu(menu: any) {
+    this.breadcrumbList.length = 0;
+    if (menu.pid !== '-1') {
+      const parent = this.menuList.filter(item => item.id === menu.pid);
+      console.log(parent)
+      this.breadcrumbList.concat(parent);
+    }
+    this.breadcrumbList.push(menu);
+    console.log(this.breadcrumbList)
+  }
 }

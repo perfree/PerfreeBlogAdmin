@@ -26,6 +26,8 @@ import {NzMessageModule} from "ng-zorro-antd/message";
 import {NzTypographyModule} from "ng-zorro-antd/typography";
 import {NzSpaceModule} from "ng-zorro-antd/space";
 import {NzStatisticModule} from "ng-zorro-antd/statistic";
+import {NzBreadCrumbModule} from "ng-zorro-antd/breadcrumb";
+import {NzResizableModule} from "ng-zorro-antd/resizable";
 
 export const SHARED_ZORRO_MODULES = [
   NzFormModule,
@@ -55,5 +57,6 @@ export const SHARED_ZORRO_MODULES = [
   NzMessageModule,
   NzTypographyModule,
   NzSpaceModule,
-  NzStatisticModule
+  NzStatisticModule,
+  NzBreadCrumbModule
 ];

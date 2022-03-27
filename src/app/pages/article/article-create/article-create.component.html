@@ -1,1 +1,28 @@
-<p>article-create works!</p>
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a routerLink="/">首页</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    写文章
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+
+<div class="content-wrap">
+  <div nz-row class="container" [nzGutter]="8">
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="14" nzXl="16">
+      <div class="article-box">
+        <form nz-form [nzLayout]="'vertical'" [formGroup]="validateForm">
+          <nz-form-item>
+            <nz-form-label nzRequired nzFor="email">文章标题</nz-form-label>
+            <nz-form-control nzErrorTip="The input is not valid E-mail!">
+              <input nz-input formControlName="email" id="email" />
+            </nz-form-control>
+          </nz-form-item>
+        </form>
+      </div>
+    </div>
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="10" nzXl="8">
+      <div class="article-box">123</div>
+    </div>
+  </div>
+</div>
