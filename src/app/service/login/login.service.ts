@@ -10,7 +10,11 @@ export class LoginService {
 
   }
 
+  /**
+   * 登录
+   * @param data
+   */
   login(data: any) {
-    return this.http.post('/login', data);
+    return this.http.post('/api/login', data);
   }
 }

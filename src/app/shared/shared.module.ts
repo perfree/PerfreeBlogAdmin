@@ -1,20 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {SHARED_ZORRO_MODULES} from "./shared-zorro.module";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { MarkdownEditorComponent } from './components/markdown-editor/markdown-editor.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    MarkdownEditorComponent
+  ],
   imports: [
     ...SHARED_ZORRO_MODULES,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  exports: [
-    ...SHARED_ZORRO_MODULES,
-    ReactiveFormsModule
-  ]
+    exports: [
+        ...SHARED_ZORRO_MODULES,
+        ReactiveFormsModule,
+        MarkdownEditorComponent
+    ]
 })
 export class SharedModule { }

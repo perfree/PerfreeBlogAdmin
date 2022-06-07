@@ -37,9 +37,17 @@
             ],
             "styles": [
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
-              "src/styles.less"
+              "src/styles.less",
+              "src/assets/editor.md/css/editormd.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "src/assets/editor.md/editormd.js",
+              "src/assets/editor.md/lib/marked.min.js",
+              "src/assets/editor.md/lib/prettify.min.js",
+              "src/assets/editor.md/lib/raphael.min.js",
+              "src/assets/editor.md/lib/underscore.min.js"
+            ]
           },
           "configurations": {
             "production": {

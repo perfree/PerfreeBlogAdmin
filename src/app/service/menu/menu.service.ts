@@ -8,7 +8,10 @@ export class MenuService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * 获取菜单树
+   */
   getMenuTree() {
-    return this.http.get('/admin/menu/menuTree');
+    return this.http.get('/api/admin/menu/menuTree');
   }
 }
