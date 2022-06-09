@@ -10,7 +10,7 @@
    </div>
 
     <div class="header-r">
-      <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="userMenu" class="userBox" [nzPlacement]="'bottomCenter'">
+      <a nz-dropdown [nzDropdownMenu]="userMenu" class="userBox" [nzPlacement]="'bottomCenter'">
         <nz-avatar nzIcon="user" nzSrc="{{user.avatarUrl}}"></nz-avatar>
         {{user.userName}}
         <i nz-icon nzType="down"></i>

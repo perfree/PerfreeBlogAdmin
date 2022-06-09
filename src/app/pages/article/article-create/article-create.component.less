@@ -5,10 +5,17 @@ nz-breadcrumb{
 .content-wrap{
   width: 100%;
   padding: 15px 15px;
+  height: calc(100% - 42px);
 }
-.article-box{
+.leftBox .article-box{
   background: white;
-  padding: 15px;
+  padding: 15px 15px 15px;
+  height: 100%;
+}
+.rightBox .article-box{
+  background: white;
+  padding: 0 15px 15px;
+  height: calc(100% - 64px);
 }
 .article-header-box{
   background: white;
@@ -54,6 +61,9 @@ nz-breadcrumb{
   margin-left: 15px;
   transition: right .3s;
   right: 0;
+}
+.articleForm{
+  height: 100%;
 }
 .leftBoxExpand{
   width: 100%;

@@ -13,7 +13,7 @@
 
     <div [ngClass]="{'leftBox': true, 'leftBoxExpand': articleRightIsShrink}">
       <div class="article-box">
-        <form nz-form [nzLayout]="'vertical'" [formGroup]="validateForm">
+        <form nz-form [nzLayout]="'vertical'" [formGroup]="validateForm" class="articleForm">
           <nz-form-item>
             <nz-form-label nzRequired nzFor="email">文章标题</nz-form-label>
             <nz-form-control nzErrorTip="The input is not valid E-mail!">
@@ -44,12 +44,96 @@
       </div>
       <div class="article-box">
         <form nz-form [nzLayout]="'vertical'" [formGroup]="rightValidateForm">
-          <nz-form-item>
-            <nz-form-label nzRequired nzFor="address">访问地址别名</nz-form-label>
-            <nz-form-control nzErrorTip="The input is not valid E-mail!">
-              <input nz-input formControlName="address" />
-            </nz-form-control>
-          </nz-form-item>
+          <nz-tabset>
+            <nz-tab nzTitle="基础信息">
+
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="address">访问地址别名</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid E-mail!">
+                  <input nz-input formControlName="address" />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="address">分类</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid E-mail!">
+                  <input nz-input formControlName="address" />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="address">标签</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid E-mail!">
+                  <input nz-input formControlName="address" />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="address">文章摘要</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid E-mail!">
+                  <textarea nz-input formControlName="address"></textarea>
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="address">文章封面</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid E-mail!">
+                  <textarea nz-input formControlName="address"></textarea>
+                </nz-form-control>
+              </nz-form-item>
+            </nz-tab>
+            <nz-tab nzTitle="文章SEO">
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="address">文章关键字</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid E-mail!">
+                  <textarea nz-input formControlName="address"></textarea>
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="address">文章描述</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid E-mail!">
+                  <textarea nz-input formControlName="address"></textarea>
+                </nz-form-control>
+              </nz-form-item>
+            </nz-tab>
+            <nz-tab nzTitle="其他信息">
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="address">允许评论</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid E-mail!">
+                  <input nz-input formControlName="address" />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="address">置顶</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid E-mail!">
+                  <input nz-input formControlName="address" />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="address">文章标识</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid E-mail!">
+                  <input nz-input formControlName="address" />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="address">自定义模板</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid E-mail!">
+                  <input nz-input formControlName="address" />
+                </nz-form-control>
+              </nz-form-item>
+
+              <nz-form-item>
+                <nz-form-label nzRequired nzFor="address">访问密码</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid E-mail!">
+                  <input nz-input formControlName="address" />
+                </nz-form-control>
+              </nz-form-item>
+            </nz-tab>
+          </nz-tabset>
         </form>
       </div>
     </div>
