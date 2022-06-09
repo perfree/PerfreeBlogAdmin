@@ -1,26 +1,26 @@
 <nz-layout class="layout">
-  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" [nzWidth]="220">
+  <nz-sider nzCollapsible nzBreakpoint="lg" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" [nzWidth]="220">
     <div class="logo">
       <nz-avatar [nzSize]="32" nzSrc="/assets/imgs/logo.png"></nz-avatar>
       <span *ngIf="!isCollapsed" class="logo-text">Perfree</span>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline">
       <ng-container *ngFor="let menu of menuList">
-        <li nz-menu-item nzMatchRouter [routerLink]="[menu.url]" [nzMatchRouterExact]="true" *ngIf="menu.childMenu.length <= 0" (click)="changeMenu(menu)">
+        <li nz-menu-item nzMatchRouter [routerLink]="[menu.url]" [nzMatchRouterExact]="true" *ngIf="menu.childMenu.length <= 0" >
           <i nz-icon [nzType]="menu.icon"></i>
           <span>{{menu.name}}</span>
         </li>
 
         <li nz-submenu [nzTitle]="menu.name" [nzIcon]="menu.icon" *ngIf="menu.childMenu.length > 0">
           <ul>
-            <li nz-menu-item nzMatchRouter [routerLink]="[childMenu.url]" [nzMatchRouterExact]="true" *ngFor="let childMenu of menu.childMenu" (click)="changeMenu(childMenu)">{{childMenu.name}}</li>
+            <li nz-menu-item nzMatchRouter [routerLink]="[childMenu.url]" [nzMatchRouterExact]="true" *ngFor="let childMenu of menu.childMenu" >{{childMenu.name}}</li>
           </ul>
         </li>
       </ng-container>
     </ul>
   </nz-sider>
 
-  <nz-layout>
+  <nz-layout [ngClass]="{'right-layout': true,'right-layout-shrink': !isCollapsed, 'right-layout-expand': isCollapsed}">
     <app-layout-header [(isCollapsed)]="isCollapsed"></app-layout-header>
 
     <nz-content class="p-content">

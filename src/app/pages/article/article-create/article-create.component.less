@@ -14,31 +14,24 @@ nz-breadcrumb{
   background: white;
   padding: 15px;
   border-bottom: 1px solid #d9d9d9;
+  display: flex;
 }
-.shrink-btn, .expand-btn{
+.shrink-article-right-btn{
+  margin-left: auto;
   font-size: 18px;
   color: inherit;
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .save-btn-box{
   display: inline-block;
-  float: right;
 }
 .save-btn-box button {
   margin-left: 15px;
 }
-.expand-btn{
-  position: fixed;
-  font-size: 18px;
-  color: inherit;
-  right: 0;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  line-height: 40px;
-  background: white;
-  border-radius: 5px;
-  display: none;
-  box-shadow: 0 0 10px rgb(0 0 0 / 10%), 0 5px 20px rgb(0 0 0 / 20%);
+.save-btn-box button:first-child {
+  margin-left: 0;
 }
 /deep/ .ant-form-item{
   margin: 0 0 8px;
@@ -46,4 +39,43 @@ nz-breadcrumb{
 /deep/ .ant-form label{
   font-size: 13px;
   color: #292929;
+}
+.container{
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+.leftBox{
+  width: 70%;
+  transition: width .3s;
+}
+.rightBox{
+  width: calc(30% - 15px);
+  margin-left: 15px;
+  transition: right .3s;
+  right: 0;
+}
+.leftBoxExpand{
+  width: 100%;
+}
+.rightBoxShrink{
+  position: absolute;
+  right: calc(70% - 100% - 15px);
+}
+.expand-article-right-btn{
+  position: fixed;
+  display: inline-block;
+  padding: 15px;
+  background: white;
+  font-size: 18px;
+  color: inherit;
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%), 0 5px 20px rgb(0 0 0 / 20%);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  right: -50px;
+  transition: right .3s;
+  z-index: 99;
+}
+.expand-article-right-btn-show{
+  right: 0;
 }

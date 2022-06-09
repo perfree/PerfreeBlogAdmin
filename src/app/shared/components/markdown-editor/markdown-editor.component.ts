@@ -1,6 +1,7 @@
 import {Component, forwardRef, Input, OnInit} from '@angular/core';
 import {NG_VALUE_ACCESSOR} from "@angular/forms";
 import {EditorConfig} from "./editor-config";
+
 declare var editormd: any;
 @Component({
   selector: 'app-markdown-editor',
@@ -66,8 +67,6 @@ export class MarkdownEditorComponent implements OnInit {
    * @param height 高
    */
   resize(width: string, height: string): void {
-    setTimeout(() => {
-      this.markdownEditor.resize(width, height);
-    })
+    this.markdownEditor.resize(width, height);
   }
 }

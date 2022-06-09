@@ -22,12 +22,27 @@ nz-content {
 nz-footer {
   text-align: center;
 }
-.layout{
-  height: 100%;
-}
 .p-content{
   min-height: calc(100% - 64px)!important;
 }
 .p-content .inner-content{
   height: 100%;
+}
+nz-sider {
+  overflow: auto;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  z-index: 999;
+  transition: all .3s;
+}
+.right-layout{
+  margin-left: 220px;
+  transition: all .3s;
+}
+.right-layout-shrink{
+  margin-left: 220px;
+}
+.right-layout-expand{
+  margin-left: 80px;
 }

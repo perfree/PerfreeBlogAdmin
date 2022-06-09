@@ -10,18 +10,19 @@
    </div>
 
     <div class="header-r">
-      <a nz-dropdown [nzDropdownMenu]="menu" class="user-box">
+      <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="userMenu" class="userBox" [nzPlacement]="'bottomCenter'">
         <nz-avatar nzIcon="user" nzSrc="{{user.avatarUrl}}"></nz-avatar>
         {{user.userName}}
         <i nz-icon nzType="down"></i>
       </a>
+      <nz-dropdown-menu #userMenu="nzDropdownMenu">
+        <ul nz-menu nzSelectable>
+          <li nz-menu-item><i nz-icon nzType="user" nzTheme="outline" class="user-icon"></i> 个人中心</li>
+          <li nz-menu-item (click)="logOut()"><i nz-icon nzType="export" nzTheme="outline" class="user-icon"></i> 退出登录</li>
+        </ul>
+      </nz-dropdown-menu>
     </div>
   </div>
 </nz-header>
 
-<nz-dropdown-menu #menu="nzDropdownMenu">
-  <ul nz-menu nzSelectable>
-    <li nz-menu-item><i nz-icon nzType="user" nzTheme="outline" class="user-icon"></i> 个人中心</li>
-    <li nz-menu-item (click)="logOut()"><i nz-icon nzType="export" nzTheme="outline" class="user-icon"></i> 退出登录</li>
-  </ul>
-</nz-dropdown-menu>
+
