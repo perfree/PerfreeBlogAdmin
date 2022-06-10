@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {SHARED_ZORRO_MODULES} from "./shared-zorro.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { MarkdownEditorComponent } from './components/markdown-editor/markdown-editor.component';
+import {LazyLoadImageModule} from "ng-lazyload-image";
 
 
 
@@ -14,12 +15,14 @@ import { MarkdownEditorComponent } from './components/markdown-editor/markdown-e
     ...SHARED_ZORRO_MODULES,
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    LazyLoadImageModule
   ],
     exports: [
         ...SHARED_ZORRO_MODULES,
         ReactiveFormsModule,
-        MarkdownEditorComponent
+        MarkdownEditorComponent,
+        LazyLoadImageModule
     ]
 })
 export class SharedModule { }
