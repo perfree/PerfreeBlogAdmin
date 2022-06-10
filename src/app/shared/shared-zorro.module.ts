@@ -27,6 +27,9 @@ import {NzTypographyModule} from "ng-zorro-antd/typography";
 import {NzSpaceModule} from "ng-zorro-antd/space";
 import {NzStatisticModule} from "ng-zorro-antd/statistic";
 import {NzBreadCrumbModule} from "ng-zorro-antd/breadcrumb";
+import {NzPaginationModule} from "ng-zorro-antd/pagination";
+import {NzUploadModule} from "ng-zorro-antd/upload";
+import {NzEmptyModule} from "ng-zorro-antd/empty";
 
 export const SHARED_ZORRO_MODULES = [
   NzFormModule,
@@ -58,5 +61,8 @@ export const SHARED_ZORRO_MODULES = [
   NzSpaceModule,
   NzStatisticModule,
   NzBreadCrumbModule,
-  NzFormModule
+  NzFormModule,
+  NzPaginationModule,
+  NzUploadModule,
+  NzEmptyModule
 ];

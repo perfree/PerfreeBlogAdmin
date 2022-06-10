@@ -1,0 +1,15 @@
+<nz-upload
+  nzType="drag"
+  [nzMultiple]="true"
+  nzAction="/api/admin/attach/upload"
+  (nzChange)="handleChange($event)"
+  class="upload-attach"
+>
+  <p class="ant-upload-drag-icon">
+    <i nz-icon nzType="inbox"></i>
+  </p>
+  <p class="ant-upload-text">点击或拖拽文件到此处进行上传</p>
+  <p class="ant-upload-hint">
+    支持单个文件或批量文件上传
+  </p>
+</nz-upload>

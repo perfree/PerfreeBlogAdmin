@@ -1,0 +1,66 @@
+<nz-breadcrumb class="breadcrumb">
+  <nz-breadcrumb-item>
+    <a routerLink="/">首页</a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>
+    附件管理
+  </nz-breadcrumb-item>
+</nz-breadcrumb>
+<div class="content-wrap">
+  <div class="search-box">
+    <form nz-form [nzLayout]="'inline'" [formGroup]="validateForm" class="articleForm">
+      <nz-form-item>
+        <nz-form-label nzRequired nzFor="email">文章标题</nz-form-label>
+        <nz-form-control nzErrorTip="The input is not valid E-mail!">
+          <input nz-input formControlName="email" id="email" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button nzType="primary" style="margin-right: 15px"><i nz-icon nzType="search" nzTheme="outline"></i>搜索</button>
+          <button nz-button nzType="default"><i nz-icon nzType="sync" nzTheme="outline"></i>重置</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+
+  <div class="table-box">
+    <div class="table-header">
+      <div class="left">附件列表</div>
+      <div class="right">
+        <button nz-button nzType="primary" (click)="uploadAttach()"><i nz-icon nzType="cloud-upload" nzTheme="outline"></i>上传附件</button>
+      </div>
+    </div>
+    <div class="attach-list" nz-row [nzGutter]="[8, 8]">
+      <nz-spin [nzSpinning]="loading">
+        <div nz-row [nzGutter]="[8, 8]">
+          <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="6" [nzLg]="4" [nzXl]="3" *ngFor="let attach of attachList">
+            <nz-card nzHoverable style="width:100%" [nzCover]="coverTemplate">
+              <nz-card-meta [nzTitle]="attach.name"></nz-card-meta>
+            </nz-card>
+            <ng-template #coverTemplate>
+              <ng-container *ngIf="attach.type === 'img'">
+                <img [alt]="attach.name" [src]="'/upload' + attach.path" class="attach"/>
+              </ng-container>
+              <ng-container *ngIf="attach.type === 'other'">
+                <div class="attach other">
+                  <div style="font-size: 28px"><i nz-icon nzType="file-zip" nzTheme="outline"></i></div>
+                  <div>{{attach.suffix.slice(1) }}</div>
+                </div>
+              </ng-container>
+            </ng-template>
+          </div>
+        </div>
+      </nz-spin>
+      <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24" *ngIf="attachList.length <= 0">
+        <nz-empty></nz-empty>
+      </div>
+
+      <div nz-col [nzXs]="24" [nzSm]="24" [nzMd]="24" [nzLg]="24" [nzXl]="24" class="page-box">
+        <nz-pagination [(nzPageIndex)]="currentPage" [(nzPageSize)]="pageSize" [nzTotal]="total" (nzPageSizeChange)="pageList()"
+                       (nzPageIndexChange)="pageList()" nzShowSizeChanger [nzPageSizeOptions]="[10,16,20,30,40]"></nz-pagination>
+      </div>
+    </div>
+  </div>
+</div>
