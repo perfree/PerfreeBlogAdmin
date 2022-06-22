@@ -4,7 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NZ_I18N, zh_CN} from 'ng-zorro-antd/i18n';
-import {registerLocaleData} from '@angular/common';
+import {HashLocationStrategy, LocationStrategy, registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -30,7 +30,8 @@ registerLocaleData(zh);
     { provide: NZ_I18N, useValue: zh_CN },
     {provide: HTTP_INTERCEPTORS, useClass: DefaultInterceptor, multi: true},
     LayoutDefaultResolver,
-    NzNotificationService
+    NzNotificationService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent],
 })

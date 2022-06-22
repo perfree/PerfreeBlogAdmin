@@ -13,7 +13,7 @@ const routes: Routes = [
       {path: 'dashboard', loadChildren: () => import('../pages/dashboard/dashboard.module').then(m => m.DashboardModule)},
       {path: 'article', loadChildren: () => import('../pages/article/article.module').then(m => m.ArticleModule)},
       {path: 'tag', loadChildren: () => import('../pages/tag/tag.module').then(m => m.TagModule)},
-      {path: 'attach', loadChildren: () => import('../pages/attach/attach.module').then(m => m.AttachModule)}
+      {path: 'attachment', loadChildren: () => import('../pages/attach/attach.module').then(m => m.AttachModule)}
     ]
   },
 ];

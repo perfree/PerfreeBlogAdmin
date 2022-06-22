@@ -10,9 +10,21 @@
   <div class="search-box">
     <form nz-form [nzLayout]="'inline'" [formGroup]="validateForm" class="articleForm">
       <nz-form-item>
-        <nz-form-label nzRequired nzFor="email">文章标题</nz-form-label>
-        <nz-form-control nzErrorTip="The input is not valid E-mail!">
-          <input nz-input formControlName="email" id="email" />
+        <nz-form-label>附件名称</nz-form-label>
+        <nz-form-control>
+          <input nz-input formControlName="name" placeholder="请输入"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label>附件类型</nz-form-label>
+        <nz-form-control >
+          <nz-select formControlName="type" style="width: 182px" nzPlaceHolder="请选择">
+            <nz-option nzValue="img" nzLabel="图片"></nz-option>
+            <nz-option nzValue="video" nzLabel="视频"></nz-option>
+            <nz-option nzValue="audio" nzLabel="音频"></nz-option>
+            <nz-option nzValue="other" nzLabel="其他"></nz-option>
+          </nz-select>
         </nz-form-control>
       </nz-form-item>
 
@@ -36,20 +48,20 @@
       <nz-spin [nzSpinning]="loading">
         <div nz-row [nzGutter]="[8, 8]">
           <div nz-col [nzXs]="24" [nzSm]="12" [nzMd]="6" [nzLg]="4" [nzXl]="3" *ngFor="let attach of attachList">
-            <nz-card nzHoverable style="width:100%" [nzCover]="coverTemplate">
+            <nz-card style="width:100%" [nzCover]="coverTemplate" [nzHoverable]="true">
               <nz-card-meta [nzTitle]="attach.name"></nz-card-meta>
             </nz-card>
             <ng-template #coverTemplate>
               <ng-container *ngIf="attach.type === 'img'">
-                <img [lazyLoad]="'/upload' + attach.path" [defaultImage]="'/assets/imgs/loading.jpg'" [alt]="attach.name" class="attach"  loading="lazy"/>
+                <img [src]="attach.path" [alt]="attach.name" class="attach" loading="lazy"/>
               </ng-container>
 
               <ng-container *ngIf="attach.type === 'video'">
                 <div class="attach">
                   <video width="100%" height="100%" controls="controls" style="object-fit: fill;"  preload="none">
-                    <source [src]="'/upload' + attach.path"  type="video/mp4">
-                    <source [src]="'/upload' + attach.path" type="video/ogg">
-                    <source [src]="'/upload' + attach.path" type="video/webm">
+                    <source [src]="attach.path"  type="video/mp4">
+                    <source [src]="attach.path" type="video/ogg">
+                    <source [src]="attach.path" type="video/webm">
                     <!-- 同一视频的兼容性写法 -->
                     Your browser does not support the video tag.
                   </video>
@@ -60,8 +72,8 @@
                 <div class="attach music">
                  <span class="music-icon"> <i nz-icon nzType="customer-service" nzTheme="outline"></i></span>
                   <audio controls preload="none" >
-                    <source [src]="'/upload' + attach.path" type="audio/ogg">
-                    <source [src]="'/upload' + attach.path" type="audio/mpeg">
+                    <source [src]="attach.path" type="audio/ogg">
+                    <source [src]="attach.path" type="audio/mpeg">
                     您的浏览器不支持 audio 元素。
                   </audio>
                 </div>

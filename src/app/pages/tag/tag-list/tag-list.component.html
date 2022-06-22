@@ -33,7 +33,8 @@
         <button nz-button nzType="primary">添加</button>
       </div>
     </div>
-    <nz-table #basicTable [nzData]="listOfData" [nzBordered]="true" [nzScroll]="{ x: '1100px' }">
+    <nz-table #basicTable [nzData]="listOfData" [nzTotal]="total" (nzQueryParams)="pageList()"
+              [(nzPageIndex)]="pageIndex" nzShowSizeChanger [(nzPageSize)]="pageSize"  [nzFrontPagination]="false" [nzLoading]="true">
       <thead>
       <tr>
         <th>标签名</th>

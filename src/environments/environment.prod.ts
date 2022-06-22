@@ -1,6 +1,10 @@
 export const environment = {
-  production: true,
+  production: false,
   loginUrl: '/login',
+  local: {
+    token: 'perfree-token',
+    user: 'perfree-user'
+  },
   token: {
     header: 'Authorization',
     value: ''

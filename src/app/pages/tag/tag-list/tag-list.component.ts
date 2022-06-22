@@ -29,6 +29,9 @@ export class TagListComponent implements OnInit {
   ];
 
   validateForm!: FormGroup;
+  pageSize: number = 10;
+  pageIndex: number = 1;
+  total: number = 50;
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -37,4 +40,7 @@ export class TagListComponent implements OnInit {
     });
   }
 
+  pageList() {
+
+  }
 }
